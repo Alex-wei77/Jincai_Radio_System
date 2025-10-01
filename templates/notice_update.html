@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告修改</title>
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/general.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/notice_update.css">
+    <script src="https://kit.fontawesome.com/762f1d72b5.js" crossorigin="anonymous"></script>
+    <script src="static/js/textcolor.js"></script>
+</head>
+<body>
+    <div class="mid">
+        <form class="post" method="post" action="/notice_submit">
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+            <div class="input_area">
+                <h2 id="title">修改公告内容</h2>
+                <textarea name="notice_write" rows="50" cols="60">{{notice}}</textarea>
+            </div>
+            <div class="list">
+                <input type="submit" value="提交" id="submit">
+                <input type="button" value="返回" id="submit" onclick="window.location.href='/manage'">
+            </div>
+        </form> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改记录</title>
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/general.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/add.css">
+    <script src="static/js/birthday_status.js"></script>
+    <script src="https://kit.fontawesome.com/762f1d72b5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="mid">
+        <div class="login">
+            <form class="post" method="post" action="/update">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                <h2 id="title">修改记录</h2>
+                {% for data in db %}
+                <ul>
+                     <li>
+                        <i class="fa-solid fa-calendar-week"></i>
+                        <input type="hidden" value="{{data[0]}}" name="id">
+                        <input type="hidden" value="{{data[9]}}" name="birthday_status">
+                        <input type="date" name="date" required="required" value={{data[1]}}>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-music"></i>
+                        <input type="text" value="{{data[2]}}" name="name" required="required">
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-guitar"></i>
+                        <input type="text" value="{{data[3]}}" name="artist" required="required">
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                        <input type="text" value="{{data[4]}}" name="target">
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-user-pen"></i>
+                        <input type="text" value="{{data[5]}}" name="client">
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-receipt"></i>
+                        <input type="text" value="{{data[6]}}" name="note">
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-cake-candles"></i>是否生日歌
+                        <input type="checkbox" name="birthday">
+                    </li>
+                    <li>
+                        <input type="submit" value="提交" id="submit">
+                        <input type="button" value="返回" id="submit" onclick="window.location.href='/manage'">
+                    </li>
+                </ul>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

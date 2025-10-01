@@ -1,0 +1,8 @@
+backup/
+instance/
+log/
+venv/
+*.crt
+*.key
+*.env
+notice.md

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提示</title>
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/general.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/feedback.css">
+    <script src="https://kit.fontawesome.com/762f1d72b5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="/static/js/feedback.js"></script>
+    <div class="mid">
+        <form class="post" method="post" action="/submit">
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+            {% with messages = get_flashed_messages() %}  
+             {% if messages %}
+              {% for message in messages %}
+               <h2>{{ message }}</h2>
+              {% endfor %}
+             {% endif %}
+            {% endwith %}
+            <ul>
+                <li>
+                    <input type="button" value="返回" id="submit" onclick="back()">
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+
+</html>

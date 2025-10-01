@@ -1,0 +1,45 @@
+/*中框*/
+.mid {
+	margin: 0 auto;
+	margin-top: 25px;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+}
+
+/*下框*/
+.ground {
+	background-color:rgba(var(--brightness), var(--brightness), var(--brightness), 0.514);
+	border: 1px solid rgba(255, 255, 255, 0.081);
+	width: 400px;
+    margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 18px;
+	border-radius: 22px;
+	box-shadow: 5px 5px 20px rgba(29, 29, 29, 0.208);
+	text-align: center;
+	-webkit-backdrop-filter: blur(20px) saturate(250%);
+	backdrop-filter: blur(20px) saturate(250%);
+	transition-duration: 0.5s;
+}
+
+
+.input_area{
+	float: left;
+}
+
+#notice{
+	background-color: var(--input-color);
+	transition-duration: 150ms;
+	outline-style: none;
+	border: 1px solid rgba(255, 252, 252, 0.089);
+	border-radius: 12px;
+	padding: 14px 14px;
+	font-size: 16px;
+}
+
+h2{
+	margin:20px 0 20px 0;
+}

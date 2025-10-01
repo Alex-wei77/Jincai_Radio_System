@@ -1,0 +1,164 @@
+:root {
+	font-family: PingFangSC-Regular, sans-serif;
+	--brightness: 255;
+	--borderColor:rgba(255, 252, 252, 0.089);
+	--input-color: rgba(var(--brightness), var(--brightness), var(--brightness), 0.700);
+	--textColor:rgb(0, 0, 0);
+	--link-color: #33335d;
+	--link-hover-color:#0000df89;
+	--shadow-color:rgba(29, 29, 29, 0.208);
+	--bg:url("https://evan.beee.top/alex/2023/05/14/1f3851a4ad9b025818b086c9bc2a14c7.webp");
+}
+/* 在暗色模式下的样式 */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--brightness:20;
+		--borderColor: #87878d00;
+		--textColor:rgb(236, 209, 209);
+		--link-color: rgb(236, 209, 209);
+		--link-hover-color:#3acff189;
+		--shadow-color:rgba(255, 255, 255, 0.208);
+		--bg:url("https://evan.beee.top/alex/Jincai_Night.png");
+		}
+}
+/* 主UI */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+#title {
+	font-family: PingFangSC-Regular, sans-serif;
+	font-weight: 120;
+	margin-top: 5%;
+}
+body {
+	color:var(--textColor);
+	background-image: var(--bg);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+}
+
+body:before {
+	content: "";
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
+	background: var(--bg) no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+  }
+
+.mid {
+	background-color: rgba(var(--brightness), var(--brightness), var(--brightness), 0.514);
+	border: 1px solid var(--borderColor);
+	border-radius: 22px;
+	box-shadow: 5px 5px 20px rgba(29, 29, 29, 0.208);
+	-webkit-backdrop-filter: blur(20px) saturate(250%);
+	backdrop-filter: blur(20px) saturate(250%);
+	transition-duration: 0.5s;
+}
+
+a {
+	text-decoration: none;
+	color: var(--link-color);
+	font-size: 18px;
+}
+
+a:hover {
+	color: var(--link-hover-color);
+}
+li {
+	list-style: none;
+	margin-top: 20px;
+}
+
+/* 表单相关 */
+form {
+	margin: 0px;
+}
+
+.post {
+	text-align: center;
+}
+input
+{
+	color:var(--textColor);
+	background-color: var(--input-color);
+	transition-duration: 150ms;
+	outline-style: none;
+	border: 1px solid var(--borderColor);
+	border-radius: 12px;
+	padding: 14px 14px;
+	font-size: 16px;
+}
+.post ul li input[type=text],
+.post ul li input[type=password],
+.post ul li input[type=email] {
+	font-size: 16px;
+    width: 275px;
+	height: 40px;
+}
+.post ul li input[type="text"] {
+	width: 275px;
+	height: 40px;
+	/* margin-top: 20px;  */
+}
+.post ul li input[type="date"] {
+	width: 275px;
+	height: 40px;
+	/* margin-top: 20px;  */
+}
+.post ul li input[type="submit"],
+.post ul li input[type="button"]{
+	width: 70px;
+	height: 50px;
+	margin-top: 20px; 
+    background-color: rgba(var(--brightness), var(--brightness), var(--brightness), 0.514);
+	transition-duration: 150ms;
+	outline-style: none;
+	border: 0.5px solid rgba(255, 252, 252, 0.089);
+	border-radius: 12px;
+	font-size: 15px;
+	cursor: pointer;
+}
+input:hover {
+	-webkit-box-shadow: #ccc 0px 10px 10px;
+	-moz-box-shadow: #ccc 0px 10px 10px;
+	box-shadow: 5px 5px 20px var(--shadow-color);
+	background-color: rgba(var(--brightness), var(--brightness), var(--brightness), 0.6);
+}
+
+
+button:hover {
+	-webkit-box-shadow: #ccc 0px 10px 10px;
+	-moz-box-shadow: #ccc 0px 10px 10px;
+	box-shadow: 5px 5px 20px rgba(29, 29, 29, 0.208);
+	background-color: rgba(var(--brightness), var(--brightness), var(--brightness), 0.3);
+}
+/* 表格相关 */
+table{
+	border-radius:20px;
+	border-collapse:collapse;
+	border-style:hidden;
+	background-color: rgba(var(--brightness), var(--brightness), var(--brightness), 0.700);
+}
+td,tr{
+	width: 100px;
+    height: 50px;
+	padding: 20px;
+	border: 1px solid var(--textColor);
+	text-align: center;
+}
+
+

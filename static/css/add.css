@@ -1,0 +1,88 @@
+/*中框*/
+.mid {
+	margin: 0 auto;
+	margin-top: 25px;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.edit{
+	margin-bottom: 10px;
+}
+
+.num {
+	width: 5em;
+	height: 4px;
+}
+
+  .edit [type="submit"]{
+	padding: 3.5px 10px 5px;
+  }
+  
+/* 公告栏 */
+#notice{
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 超出长度的部分隐藏 */
+    text-overflow: ellipsis; /* 使用省略号代替 */
+    max-width: 270px; /* 最大宽度，可以根据需要进行调整 */
+    display: inline-block; /* 保持元素为行内块级元素 */
+}
+
+/*下框*/
+.ground {
+	background-color:rgba(var(--brightness), var(--brightness), var(--brightness), 0.514);
+	border: 1px solid rgba(255, 255, 255, 0.081);
+	width: 400px;
+    margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 18px;
+	border-radius: 22px;
+	box-shadow: 5px 5px 20px var(--shadow-color);
+	text-align: center;
+	-webkit-backdrop-filter: blur(20px) saturate(250%);
+	backdrop-filter: blur(20px) saturate(250%);
+	transition-duration: 0.5s;
+}
+
+.post ul li input[type="submit"],
+.post ul li input[type="button"]{
+	padding: 8px 14px 8px;
+	margin: 20px 0px 1px;
+}
+
+
+/* 输入部分 */
+.input_area{
+	float: left;
+}
+/* 歌单部分 */
+.list{
+	padding: 20px;
+	margin-left: 20px;
+}
+
+#name{
+	width: 200px;
+}
+.redtext {
+	color: red;
+  }  
+
+.greentext{
+	color: green;
+}
+.yellowtext{
+	color:#f19411;
+}
+h2{
+	margin:20px 0 20px 0;
+}
+p{
+	margin-bottom: 5px;
+}

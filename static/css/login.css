@@ -1,0 +1,15 @@
+
+/*登陆居中中框*/
+.mid {
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 100px;
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+
+.post ul li input[type="submit"],
+.post ul li input[type="button"]{
+	padding: 8px 14px 8px;
+	margin: 20px 0px 1px;
+}

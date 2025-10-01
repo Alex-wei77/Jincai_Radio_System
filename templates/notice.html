@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告栏</title>
+    <!-- <script src="https://cdn.uv.cc/markedjs/0.3.5/marked.min.js"></script> -->
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/general.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/notice.css">
+    <script src="https://kit.fontawesome.com/762f1d72b5.js" crossorigin="anonymous"></script>
+    <script src="static/js/textcolor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+<body>
+    <div class="mid">
+        <div class="input_area">
+            <h2 id="title">公告栏</h2>
+            <div id="notice" style="white-space: pre-wrap;"></div>
+            <ul>
+                <li>
+                    <input type="button" value="返回" id="submit" onclick="window.location.href='/'">
+                </li>
+            </ul>
+            <script>
+                const markdownContent = `{{notice}}`;
+                const converter = new showdown.Converter();
+                const htmlContent = converter.makeHtml(markdownContent);
+                document.getElementById("notice").innerHTML = htmlContent;
+              </script>
+        </div>
+    </div>  
+</body>
+</html>

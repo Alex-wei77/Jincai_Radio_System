@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>歌曲详情</title>
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/general.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/css/manage.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/add.css"> -->
+    <link rel="stylesheet" type="text/css" href="/static/css/detail.css">
+    <script src="static/js/textcolor.js"></script>
+</head>
+<body>
+    <div class="mid">
+        <div class="list">
+            <h2>歌曲详情</h2>
+                <table>
+                    {% for data in db %}
+                    <tr>
+                        <td class=>隐藏性</td>
+                        <td class="invisibility">{{data[10]}}</td>
+                    <tr>
+                        <td class=>日期</td>
+                        <td>{{data[1]}}</td>
+                    </tr>
+                    <tr>
+                        <td class=>歌名</td>
+                        <td>{{data[2]}}</td>
+                    </tr>
+                    <tr>
+                        <td class=>艺术家</td>
+                        <td>{{data[3]}}</td>
+                    </tr>
+                    <tr>
+                        <td class=>点歌对象</td>
+                        <td>{{data[4]}}</td>
+                    </tr>
+                    <tr>
+                        <td class=>点歌者</td>
+                        <td>{{data[5]}}</td>
+                    </tr>
+                    <tr>
+                        <td class=>备注</td>
+                        <td>{{data[6]}}</td>
+                    </tr>
+                    <tr>
+                        <td class=>生日</td>
+                        <td class="birthday">{{data[9]}}</td>
+                    </tr>
+                    <tr>
+                        <td class=>识别码</td>
+                        <td>{{data[12]}}</td>
+                    </tr>
+                    <tr>
+                        <td class=>ip地址</td>
+                        <td>{{data[11]}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <ul>
+                    <li>
+                        <input type="button" value="返回" id="submit" onclick="window.location.href='/manage'">
+                    </li>
+                </ul>
+        </div>
+    </div>
+</body>
+
+</html>

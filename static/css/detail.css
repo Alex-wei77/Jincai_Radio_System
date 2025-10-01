@@ -1,0 +1,61 @@
+/*中框*/
+.mid {
+	margin: 0 auto;
+	margin-top: 25px;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.redtext {
+	color: red;
+  }  
+
+.greentext{
+	color: green;
+}
+.yellowtext{
+	color:#f19411;
+}
+h2{
+	margin:20px 0 20px 0;
+}
+p{
+	margin-bottom: 5px;
+}
+
+/* 内容样式 */
+.list{
+	padding: 20px;
+	margin-left: 20px;
+	float: left;
+}
+/* 表格样式 */
+table{
+	table-layout: auto;
+}
+
+h3{
+	margin:20px 0 20px 0;
+}
+
+.redtext {
+	color: red;
+  }  
+
+.greentext{
+	color: green;
+}
+.yellowtext{
+	color:#f19411;
+}
+
+
+
+td:nth-child(2), th:nth-child(2) {
+    width: 500px; /* 增大第二列的列宽，可以根据需要调整 */
+}

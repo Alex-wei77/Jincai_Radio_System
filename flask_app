@@ -1,0 +1,26 @@
+server {
+    listen 80;
+    server_name www.jcradio.cn jcradio.cn;
+    
+    # 重定向所有 HTTP 请求到 HTTPS
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name www.jcradio.cn jcradio.cn;
+
+    ssl_certificate /root/Jincai_Radio_System/jcradio.cn.crt;
+    ssl_certificate_key /root/Jincai_Radio_System/jcradio.cn.key;  # 这里应该指向密钥文件
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    location / {
+        proxy_pass http://127.0.0.1:2788;  # Flask 应用的地址和端口
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>广电部点歌系统管理</title>
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/general.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/manage.css">
+    <script src="static/js/textcolor.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script> -->
+    <script src="https://static.hdslb.com/js/jquery.min.js" defer></script>
+    <script src="static/js/edit_numhis_manage.js" defer></script>
+    <!-- <script src="https://kit.fontawesome.com/762f1d72b5.js" crossorigin="anonymous" async></script> -->
+</head>
+
+<body>
+    <div class="mid">
+        <div class="list">
+            <h2>后台管理系统</h2>
+            <input type="button" value="修改公告" onclick="window.location.href='/notice_update'">
+            <input type="button" value="回到主页" onclick="window.location.href='/'">
+            <input type="button" value="手动添加" onclick="window.location.href='/admin_add'">
+            <h3>当前歌单</h3>
+            <form action="/edit_fetch_current_manage" class="edit" id="current" method="post">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                <p>显示歌曲数（默认10首）</p>
+                <input type="number" class="num" name="num" oninput="if(value<=0)value=0;value=parseInt(value)"  />
+                <input type="submit" value="提交">
+            </form>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}"> 
+                <table id="currentTable">
+                    <tr>
+                        <th>隐藏性</th>
+                        <th>日期</th>
+                        <th>歌名</th>
+                        <th>艺术家</th>
+                        <th>点歌对象</th>
+                        <th>点歌者</th>
+                        <th>备注</th>
+                        <th>生日</th>
+                        <th>操作</th>
+                    </tr>
+                    {% for data in showed %}
+                    <tr>
+                        <td class="invisibility">{{data[10]}}</td>
+                        <td>{{data[1]}}</td>
+                        <td>{{data[2]}}</td>
+                        <td>{{data[3]}}</td>
+                        <td>{{data[4]}}</td>
+                        <td>{{data[5]}}</td>
+                        <td id="note">{{data[6]}}</td>
+                        <td class="birthday">{{data[9]}}</td>
+                        <td id="manage">
+                            <div class="container">
+                                <form class="table" method="post" action="/delete"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><input type="hidden" value="{{data[0]}}" name="id"><input type="submit" value="删除"></form>
+                                <form class="table" method="post" action="/edit"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><input type="hidden" value="{{data[0]}}" name="id"><input type="submit" value="修改"></form>
+                                <form class="table" method="post" action="/alter"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><input type="hidden" value="{{data[0]}}" name="id"><input type="submit" value="修改隐藏"></form>
+                                <form class="table" method="post" action="/detail"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><input type="hidden" value="{{data[0]}}" name="id"><input type="submit" value="更多信息"></form>
+
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <h3>过期歌单</h3>
+                <form action="/edit_fetch_history_manage" class="edit" id="history" method="post">
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                    <p>显示歌曲数（默认5首）</p>
+                    <input type="number" class="num" name="num" oninput="if(value<=0)value=0;value=parseInt(value)"  />
+                    <input type="submit" value="提交">
+                </form>
+                <table id="historyTable">
+                    <tr>
+                        <th>隐藏性</th>
+                        <th>日期</th>
+                        <th>歌名</th>
+                        <th>艺术家</th>
+                        <th>点给谁</th>
+                        <th>谁点的</th>
+                        <th>备注</th>
+                        <th>生日</th>
+                        <th>操作</th>
+                    </tr>
+                    {% for data in expired %}
+                    <tr>
+                        <td class="invisibility">{{data[10]}}</td>
+                        <td>{{data[1]}}</td>
+                        <td>{{data[2]}}</td>
+                        <td>{{data[3]}}</td>
+                        <td>{{data[4]}}</td>
+                        <td>{{data[5]}}</td>
+                        <td id="note">{{data[6]}}</td>
+                        <td class="birthday">{{data[9]}}</td>
+                        <td id="manage">
+                            <div class="container">
+                                <form class="table" method="post" action="/delete"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><input type="hidden" value="{{data[0]}}" name="id"><input type="submit" value="删除"></form>
+                                <form class="table" method="post" action="/edit"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><input type="hidden" value="{{data[0]}}" name="id"><input type="submit" value="修改"></form>
+                                <form class="table" method="post" action="/alter"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><input type="hidden" value="{{data[0]}}" name="id"><input type="submit" value="修改隐藏"></form>
+                                <form class="table" method="post" action="/detail"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><input type="hidden" value="{{data[0]}}" name="id"><input type="submit" value="更多信息"></form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            <form class="logout" method="post" action="/logout">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                <input type="submit" value="退出">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
