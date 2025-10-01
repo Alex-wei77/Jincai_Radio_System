@@ -6,3 +6,4 @@ venv/
 *.key
 *.env
 notice.md
+.DS_Store
